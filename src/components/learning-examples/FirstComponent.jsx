@@ -1,6 +1,6 @@
 const {Component} = require("react");
 
-export default class FirstComponent extends Component{
+ class FirstComponent extends Component{
     render() {
         return(
             <div className="firstComponent">
@@ -9,13 +9,4 @@ export default class FirstComponent extends Component{
         );
     }
 }
-
-export  class SecondComponent extends Component{
-    render() {
-        return(
-            <div className="SecondComponent">
-                FirstComponent
-            </div>
-        );
-    }
-}
+export default FirstComponent;

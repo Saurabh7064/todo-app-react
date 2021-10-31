@@ -1,14 +1,31 @@
+import FirstComponent from "./components/learning-examples/FirstComponent";
+import SecondComponent from "./components/learning-examples/SecondComponent";
+import ThirdComponent from "./components/learning-examples/ThirdComponent";
+
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import FirstComponent, {SecondComponent} from './components/learning-examples/FirstComponent'
-function App() {
-  return (
-    <div className="App">
-         My Hello World
-        <FirstComponent></FirstComponent>
-        <SecondComponent></SecondComponent>
-    </div>
-  );
-}
+import Counter from "./components/counters/Counter";
 
-export default App;
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <Counter></Counter>
+            </div>
+        );
+    }
+}
+    export default App;
+class LearningComponents extends Component {
+    render() {
+        return (
+            <div className="LearningComponents">
+                My Hello World
+                <FirstComponent></FirstComponent>
+                <SecondComponent></SecondComponent>
+                <ThirdComponent></ThirdComponent>
+            </div>
+        );
+    }
+}
