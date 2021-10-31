@@ -1,0 +1,4 @@
+npx create-react-app todo-app
+npm start
+
+babel instead of typescript
