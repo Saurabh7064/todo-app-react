@@ -3,17 +3,16 @@ import SecondComponent from "./components/learning-examples/SecondComponent";
 import ThirdComponent from "./components/learning-examples/ThirdComponent";
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Counter from "./components/counters/Counter";
+
+
 
 class App extends Component {
     render() {
         return (
             <div className="App">
                 <Counter></Counter>
-                <Counter by={5}></Counter>
-                <Counter by={10}></Counter>
             </div>
         );
     }
