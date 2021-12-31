@@ -5,6 +5,7 @@ import ThirdComponent from "./components/learning-examples/ThirdComponent";
 import React, { Component } from 'react';
 import './App.css';
 import Counter from "./components/counters/Counter";
+import TodoApp from "./components/todo/TodoApp";
 
 
 
@@ -12,12 +13,15 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Counter></Counter>
+                {/*<Counter></Counter>*/}
+            <TodoApp/>
             </div>
         );
     }
 }
-    export default App;
+
+export default App;
+
 class LearningComponents extends Component {
     render() {
         return (
