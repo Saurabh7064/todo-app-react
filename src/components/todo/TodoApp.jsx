@@ -11,11 +11,31 @@ class TodoApp extends Component{
 }
 
 class LoginComponent extends Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: 'saurabh',
+            password: ''
+        }
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+
+    }
+
+    handleUsernameChange(event){
+        this.setState({username:event.target.value});
+    }
+
+    handlePasswordChange(event){
+        this.setState({password:event.target.value});
+    }
+
     render() {
         return(
             <div>
-                UserName: <input type="text" name="username"/><br/>
-                Password: <input type="password" name="password"/><br/>
+                UserName: <input type="text" name="username" value={this.state.username} onChange={this.handleUsernameChange}/><br/>
+                Password: <input type="password" name="password" value={this.state.password} onChange={this.handlePasswordChange}/><br/>
                 <button>Login</button>
             </div>
         )
