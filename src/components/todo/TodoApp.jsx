@@ -38,7 +38,7 @@ class LoginComponent extends Component{
     // }
     loginClicked() {
         if (this.state.username == 'saurabh' && this.state.password == 'saurabh') {
-            console.log('Succesful')
+             console.log('Succesful')
              this.setState({showSuccessMessage: true});
              this.setState({hasLoginFailed: false});
         }
@@ -52,8 +52,10 @@ class LoginComponent extends Component{
     render() {
         return(
             <div>
-                <ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>
-                <ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>
+                {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
+                {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
+                {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
+                {this.state.showSuccessMessage && <div>Login Successful</div>}
                 UserName: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/><br/>
                 Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br/>
                 <button onClick={this.loginClicked}>Login</button>
