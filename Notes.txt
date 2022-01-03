@@ -2,3 +2,6 @@ npx create-react-app todo-app
 npm start
 
 babel instead of typescript
+
+To add routing
+npm add react-router-dom
