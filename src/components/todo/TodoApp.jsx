@@ -1,25 +1,17 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
 
 class TodoApp extends Component{
     render() {
         return(
-
             <div className="TodoApp">
                 <Router>
-                    <Routes>
-                        <Route exact path="/" element={<LoginComponent />}></Route>
-                        <Route path="/login" element={<LoginComponent />}></Route>
-                        <Route path="/welcome" element={<WelcomeComponent />}></Route>
-                    </Routes>
-                </Router>
-                <Router>
-                    <Routes>
-                         <Route path="/" exact component={LoginComponent}> </Route>
-                        <Route path="/login" component={LoginComponent}></Route>
-                        <Route path="/welcome" component={WelcomeComponent}></Route>
-                       </Routes>
-                </Router>
+                    <>
+                        <Route path="/" exact component={LoginComponent}/>
+                        <Route path="/login" component={LoginComponent }/>
+                        <Route path="/welcome" component={WelcomeComponent}/>
+                    </>
+                 </Router>
             </div>
 
             // <div className="TodoApp">
@@ -64,9 +56,12 @@ class LoginComponent extends Component{
     // }
     loginClicked() {
         if (this.state.username == 'saurabh' && this.state.password == 'saurabh') {
-             console.log('Succesful')
-             this.setState({showSuccessMessage: true});
-             this.setState({hasLoginFailed: false});
+           this.props.history.push("/welcome")
+            // this.props.navigate('/welcome')
+
+            // console.log('Succesful')
+             // this.setState({showSuccessMessage: true});
+             // this.setState({hasLoginFailed: false});
         }
         else{
             console.log('Failed')
