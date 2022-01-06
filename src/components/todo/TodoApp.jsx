@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useNavigate, Switch} from 'react-router-dom';
+import {render} from "react-dom";
 
 class TodoApp extends Component{
     render() {
@@ -7,9 +8,12 @@ class TodoApp extends Component{
             <div className="TodoApp">
                 <Router>
                     <>
+                        <Switch>
                         <Route path="/" exact component={LoginComponent}/>
                         <Route path="/login" component={LoginComponent }/>
                         <Route path="/welcome" component={WelcomeComponent}/>
+                        <Route component={ErrorComponent}/>
+                        </Switch>
                     </>
                  </Router>
             </div>
@@ -26,6 +30,10 @@ class WelcomeComponent extends Component{
     render(){
         return <div>Welcome Home</div>
     }
+}
+
+function ErrorComponent(){
+        return <div>An error Occured</div>
 }
 
 class LoginComponent extends Component{
