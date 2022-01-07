@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Routes, Route, useNavigate, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useNavigate, Switch, Link} from 'react-router-dom';
 import {render} from "react-dom";
 
 class TodoApp extends Component{
@@ -31,9 +31,9 @@ class ListTodosComponent extends Component{
         super(props);
         this.state = {
             todos:[
-                {id:1, description: 'Learn React'},
-                {id:2, description: 'Learn JS'},
-                {id:3, description: 'Learn Angular'}
+                {id:1, description: 'Learn React',done:false, targetDate: new Date()},
+                {id:2, description: 'Learn JS',done:false, targetDate: new Date()},
+                {id:3, description: 'Learn Angular',done:false, targetDate: new Date()}
             ]
         }
     }
@@ -47,6 +47,8 @@ class ListTodosComponent extends Component{
                         <tr>
                             <th>Id</th>
                             <th>Description</th>
+                            <th>Is completed?</th>
+                            <th>Target date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,6 +58,8 @@ class ListTodosComponent extends Component{
                                 <tr>
                                     <td>{todo.id}</td>
                                     <td>{todo.description}</td>
+                                    <td>{todo.done.toString()}</td>
+                                    <td>{todo.targetDate.toString()}</td>
                                 </tr>
                         )
                     }
@@ -68,7 +72,7 @@ class ListTodosComponent extends Component{
 
 class WelcomeComponent extends Component{
     render(){
-        return <div>Welcome {this.props.match.params.name}</div>
+        return <div>Welcome {this.props.match.params.name}. Manage your todos here <Link to="/listtodo">here</Link> </div>
     }
 }
 
