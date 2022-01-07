@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Counter from "./components/counters/Counter";
 import TodoApp from "./components/todo/TodoApp";
+import './bootstrap.css';
 
 
 
