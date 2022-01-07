@@ -50,8 +50,7 @@ class ListTodosComponent extends Component{
                     <table className="table">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Description</th>
+                             <th>Description</th>
                             <th>Is completed?</th>
                             <th>Target date</th>
                         </tr>
@@ -60,9 +59,8 @@ class ListTodosComponent extends Component{
                     {
                         this.state.todos.map(
                             todo =>
-                                <tr>
-                                    <td>{todo.id}</td>
-                                    <td>{todo.description}</td>
+                                <tr key={todo.id}>
+                                     <td>{todo.description}</td>
                                     <td>{todo.done.toString()}</td>
                                     <td>{todo.targetDate.toString()}</td>
                                 </tr>
@@ -77,18 +75,21 @@ class ListTodosComponent extends Component{
 }
 
 class HeaderComponent extends Component{
+
     render() {
-        return(
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
+        console.log(isUserLoggedIn);
+        return (
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div><a href="http://www.google.com" className="navbar-brand">Google</a></div>
                     <ul className="navbar-nav">
-                        <li><Link className="nav-link" to="/welcome/in28minutes">Home</Link></li>}
-                        <li><Link className="nav-link" to="/todos">Todos</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/in28minutes">Home</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/todos">Todos</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
-                        <li><Link className="nav-link" to="/login">Login</Link></li>}
-                        <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
+                        {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                     </ul>
                 </nav>
             </header>
