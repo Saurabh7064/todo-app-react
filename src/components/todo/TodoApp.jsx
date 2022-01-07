@@ -45,7 +45,8 @@ class ListTodosComponent extends Component{
         return (
             <div>
                 <h1>List Todos</h1>
-                <table>
+                <div className="container">
+                    <table className="table">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -68,6 +69,7 @@ class ListTodosComponent extends Component{
                     }
                     </tbody>
                 </table>
+                </div>
             </div>
         )
     }
@@ -118,7 +120,15 @@ class LogoutComponent extends Component{
 
 class WelcomeComponent extends Component{
     render(){
-        return <div>Welcome {this.props.match.params.name}. Manage your todos here <Link to="/todos">here</Link> </div>
+        return(
+            <>
+                <h1>Welcome!</h1>
+        <div className="container">
+            Welcome {this.props.match.params.name}.
+            You can manage your todos <Link to="/todos">here</Link>.
+        </div>
+                </>
+        )
     }
 }
 
@@ -169,15 +179,18 @@ class LoginComponent extends Component{
         console.log(this.state);
     }
     render() {
-        return(
+        return (
             <div>
-                {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
-                {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
-                {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
-                {this.state.showSuccessMessage && <div>Login Successful</div>}
-                UserName: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/><br/>
-                Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br/>
-                <button onClick={this.loginClicked}>Login</button>
+                <h1>Login</h1>
+                <div className="container">
+                    {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
+                    {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
+                    {this.state.showSuccessMessage && <div>Login Sucessful</div>}
+                    {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
+                    User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+                    Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                    <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
+                </div>
             </div>
         )
     }
