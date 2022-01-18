@@ -5,3 +5,6 @@ babel instead of typescript
 
 To add routing
 npm add react-router-dom
+
+To add axios
+npm add axios
