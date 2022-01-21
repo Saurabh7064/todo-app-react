@@ -19,6 +19,17 @@ class ListTodosComponent extends Component{
         this.refreshTodos();
         console.log(this.state)
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate')
+        console.log(nextProps)
+        console.log(nextState)
+        return true
+    }
+
+    componentWillUnmount() {
+        //when moving to different page
+        console.log('componentWillUnmount')
+    }
 
     refreshTodos() {
         let username = AuthenticationService.getLoggedInUserName()
