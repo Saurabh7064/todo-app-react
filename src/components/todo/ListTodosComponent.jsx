@@ -12,7 +12,8 @@ class ListTodosComponent extends Component{
                 // {id:3, description: 'Learn Angular',done:false, targetDate: new Date()}
             ]
         }
-        this.deleteTodoClicked = this.deleteTodoClicked.bind(this)
+        this.deleteTodoClicked = this.deleteTodoClicked.bind(this);
+        this.updateTodoClicked = this.updateTodoClicked.bind(this);
     }
 
     componentDidMount() {
@@ -55,6 +56,12 @@ class ListTodosComponent extends Component{
 
     }
 
+    updateTodoClicked(id) {
+        console.log(id);
+        //To do a redirect
+        this.props.history.push(`/todos/${id}`);
+    }
+
     render(){
         return (
             <div>
@@ -67,6 +74,7 @@ class ListTodosComponent extends Component{
                             <th>Description</th>
                             <th>Is completed?</th>
                             <th>Target date</th>
+                            <th>Update</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -78,6 +86,7 @@ class ListTodosComponent extends Component{
                                         <td>{todo.description}</td>
                                         <td>{todo.done.toString()}</td>
                                         <td>{todo.targetDate.toString()}</td>
+                                        <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
                                         <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
                                     </tr>
                             )
