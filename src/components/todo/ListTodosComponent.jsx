@@ -6,14 +6,15 @@ class ListTodosComponent extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            todos:[
-                // {id:1, description: 'Learn React',done:false, targetDate: new Date()},
-                // {id:2, description: 'Learn JS',done:false, targetDate: new Date()},
-                // {id:3, description: 'Learn Angular',done:false, targetDate: new Date()}
-            ]
+            todos: [],
+            message: null
         }
         this.deleteTodoClicked = this.deleteTodoClicked.bind(this);
         this.updateTodoClicked = this.updateTodoClicked.bind(this);
+        this.addTodoClicked = this.addTodoClicked.bind(this);
+        this.refreshTodos = this.refreshTodos.bind(this);
+
+
     }
 
     componentDidMount() {
@@ -62,6 +63,10 @@ class ListTodosComponent extends Component{
         this.props.history.push(`/todos/${id}`);
     }
 
+    addTodoClicked() {
+        this.props.history.push(`/todos/-1`)
+    }
+
     render(){
         return (
             <div>
@@ -93,6 +98,9 @@ class ListTodosComponent extends Component{
                         }
                         </tbody>
                     </table>
+                    <div className="row">
+                        <button className="btn btn-success" onClick={this.addTodoClicked}>Add</button>
+                    </div>
                 </div>
             </div>
         )

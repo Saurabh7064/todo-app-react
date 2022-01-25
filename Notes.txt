@@ -8,3 +8,8 @@ npm add react-router-dom
 
 To add axios
 npm add axios
+
+To add formik
+npm add formik
+
+npm add moment
