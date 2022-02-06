@@ -9,6 +9,22 @@ class AuthenticationService{
             { headers: { authorization: this.createBasicAuthToken(username, password) } })
     }
 
+    executeJwtAuthenticationService(username, password) {
+        return axios.post(`${API_URL}/authenticate`, {
+            username,
+            password
+        })
+    }
+
+    registerSuccessfulLoginForJwt(username, token) {
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+        this.setupAxiosInterceptors(this.createJWTToken(token))
+    }
+
+    createJWTToken(token) {
+        return 'Bearer ' + token
+    }
+
     registerSuccessfulLogin(username,password){
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
         this.setupAxiosInterceptors(this.createBasicAuthToken(username, password))
