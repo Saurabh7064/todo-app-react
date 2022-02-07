@@ -15,3 +15,11 @@ npm add formik
 npm add moment
 
 https://github.com/Saurabh7064/restWebservice2
+
+Downgraded Node to make it work with this course
+
+How I downgraded node version in my mac
+
+sudo npm install -g n
+
+sudo n v10.13.0
